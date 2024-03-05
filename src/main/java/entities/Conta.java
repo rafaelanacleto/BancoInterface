@@ -50,7 +50,7 @@ public class Conta {
     }
 
     public void setSaldo(double saldo) {
-        Saldo =+ saldo;
+        Saldo = getSaldo() + saldo;
     }
 
     public void deposito(double valor) {
@@ -60,20 +60,15 @@ public class Conta {
 
     public void saque(double valor) {
 
-        if (IsInitialDeposit) {
-            setSaldo(valor);
-        }
-
         double saldotemp = getSaldo();
 
         if (saldotemp > valor) {
-            setSaldo((getSaldo() - valor) - 5);
+            Saldo = ((getSaldo() - valor) - 5);
         } else if (saldotemp < valor) {
-            setSaldo((valor - getSaldo()) - 5);
+        	Saldo = ((valor - getSaldo()) - 5);
         } else if (saldotemp == valor) {
-            setSaldo((getSaldo() - valor) - 5);
+        	Saldo = ((getSaldo() - valor) - 5);
         }
-
     }
 
     @Override
